@@ -25,12 +25,60 @@
       </div>
     </div>
     <script>
+      //my name
+      var name = "Eltayeb Abdelrahman";
+      // var first_name = "Eltayeb";
+      // var last_name = "Abdelrahman";
+
+      // change the header
+      header = document.querySelector(".header");
+      header.innerHTML = "Eltayeb Abdelrahman's Lab 4";
+
+      // change the title
+      title = document.querySelector("title");
+      title.innerHTML = header.textContent;
+
       function clickMe() {
+        // add two paragrpahs into the content div
+        // create a new p element
+        var p1 = document.createElement("p");
+        var p2 = document.createElement("p");
+        var newline = document.createElement("br");
+
+        // creating and attatching content to p element
+        var newContent1 = document.createTextNode(
+          `my name has ${name.length} characters`
+        );
+        p1.appendChild(newContent1);
+
+        var newContent2 = document.createTextNode(
+          `the third character in my name is ${name[2]}`
+        );
+        p2.appendChild(newContent2);
+
         const content = document.querySelector(".content");
         content.innerHTML = "Hello world";
+
+        // add the newly created element and its content into the DOM
+        content.insertAdjacentElement("beforeend", p1);
+        content.insertAdjacentElement("beforeend", p2);
+        p2.insertAdjacentElement("beforeend", newline);
+
+        // return last three charachters to new line in p2
+        var newContent3 = document.createTextNode(
+          `last three are:  ${name[name.length - 3]}, 
+                            ${name[name.length - 2]}, 
+                            ${name[name.length - 1]}`
+        );
+        p2.appendChild(newContent3);
+
+        var first_name = name.substring(0,7);
+        var last_name = name.substring(7);
+
+        var tot_length = first_name.length + last_name.length;
+
+        header.innerHTML  = `${tot_length} Eltayeb Abdelrahman's Lab 4`
       }
     </script>
-
-    <script src="scripts/main.js"></script>
   </body>
 </html>
